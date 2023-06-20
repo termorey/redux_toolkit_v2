@@ -1,0 +1,28 @@
+.createBlock {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	gap: 0.5rem;
+
+	.error {
+		background: red;
+		padding: 0.5rem;
+		color: white;
+		border-radius: 0.2rem;
+	}
+
+	.pending {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	.area {
+		min-height: 100px;
+		width: 100%;
+		min-width: 400px;
+		max-width: 600px;
+		padding: 1rem 2rem;
+		border-radius: 0.2rem;
+		resize: none;
+	}
+}

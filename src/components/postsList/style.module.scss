@@ -1,0 +1,24 @@
+.list {
+	display: flex;
+	flex-flow: column;
+	align-items: stretch;
+	gap: 1rem;
+
+	> .post {
+		display: flex;
+		flex-flow: column;
+		align-items: stretch;
+		background: #1d1b1b;
+		border-radius: 0.2rem;
+		padding: 1rem 2rem;
+		color: #f9f9f9;
+
+		.removeBtn {
+			align-self: flex-end;
+			background: red;
+			padding: 0.5rem 1rem;
+			border-radius: 0.2rem;
+			color: white;
+		}
+	}
+}
