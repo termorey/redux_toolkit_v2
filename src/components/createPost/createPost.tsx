@@ -1,7 +1,7 @@
 import {useRef} from "react";
 import style from "./style.module.scss";
 import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {createPost} from "../../store/posts/postsActions.ts";
+import {createPost} from "../../store/posts/slice.ts";
 
 export const CreatePost = () => {
 	const dispatch = useAppDispatch();
