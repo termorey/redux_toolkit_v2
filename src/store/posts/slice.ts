@@ -20,7 +20,7 @@ export const postsSlice = createSlice({
 				if (state.list.length >= 3) return rejectWithValue({message: "List is full"});
 				const response = await (new Promise<Post>((res) => setTimeout(() => res({
 					...post,
-					id: state.list.length + 1
+					id: Date.now()
 				}), 3000)));
 				return fulfillWithValue(response);
 			},
