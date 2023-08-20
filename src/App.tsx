@@ -1,6 +1,6 @@
 import './App.css'
-import {CreatePost} from "./components/createPost/createPost.tsx";
-import {PostsList} from "./components/postsList/postsList.tsx";
+import {CreatePost} from "components/createPost/createPost.tsx";
+import {PostsList} from "components/postsList/postsList.tsx";
 
 function App() {
 	return (
