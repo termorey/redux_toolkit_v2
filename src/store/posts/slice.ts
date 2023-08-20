@@ -1,20 +1,6 @@
 import type {RootState} from "../store.ts";
+import type { State, Post } from "./interfaces.ts";
 import {createSlice} from "@reduxjs/toolkit";
-
-interface State {
-	list: Post[];
-	status: Status;
-}
-
-interface Status {
-	pending: boolean;
-	error: null | string;
-}
-
-interface Post {
-	id: number;
-	body: string;
-}
 
 const initialState: State = {
 	list: [],
@@ -27,11 +13,11 @@ const initialState: State = {
 export const postsSlice = createSlice({
 	name: "posts",
 	initialState,
-	reducers: (create) => ({
-		createPost: create.asyncThunk<Omit<Post, "id">, Post, { rejectValue: { message: string; } }>(
+	reducers: ({asyncThunk, reducer}) => ({
+		createPost: asyncThunk<Omit<Post, "id">, Post, { rejectValue: { message: string; } }>(
 			async (post, {fulfillWithValue, rejectWithValue, getState}) => {
 				const state = (getState() as RootState).posts;
-				if (state.list.length >= 10) return rejectWithValue({message: "List is full"});
+				if (state.list.length >= 3) return rejectWithValue({message: "List is full"});
 				const response = await (new Promise<Post>((res) => setTimeout(() => res({
 					...post,
 					id: state.list.length + 1
@@ -53,7 +39,7 @@ export const postsSlice = createSlice({
 				}
 			}
 		),
-		removePost: create.reducer<{ id: number; }>((state, {payload: {id}}) => {
+		removePost: reducer<{ id: number; }>((state, {payload: {id}}) => {
 			state.list = state.list.filter(({id: postId}) => postId !== id);
 		})
 	}),
