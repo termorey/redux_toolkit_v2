@@ -1,6 +1,6 @@
 import style from "./style.module.scss";
 import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {removePost} from "../../store/posts/postsActions.ts";
+import {removePost} from "../../store/posts/slice.ts";
 
 export const PostsList = () => {
 	const dispatch = useAppDispatch();
