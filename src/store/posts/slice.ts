@@ -1,5 +1,5 @@
+import type {RootState} from "../store.ts";
 import {createSlice} from "@reduxjs/toolkit";
-import {RootState} from "@reduxjs/toolkit/dist/query/core/apiState";
 
 interface State {
 	list: Post[];
@@ -24,7 +24,7 @@ const initialState: State = {
 	}
 }
 
-export const postsReducer = createSlice({
+export const postsSlice = createSlice({
 	name: "posts",
 	initialState,
 	reducers: (create) => ({
@@ -58,3 +58,5 @@ export const postsReducer = createSlice({
 		})
 	}),
 })
+
+export const { createPost, removePost } = postsSlice.actions;
